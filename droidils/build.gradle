@@ -1,4 +1,23 @@
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+
+ext {
+    bintrayRepo = 'Droidils' // your repo name
+    bintrayName = 'droidils' // has to be same as your library module name
+    publishedGroupId = 'com.aptus' // your module package name
+    libraryName = 'Droidils'
+    artifact = 'droidils' // has to be same as your library module name
+    libraryDescription = 'Android Simple View and Utils'
+    siteUrl = 'https://github.com/shanmugasanthosh7/Droidils'
+    gitUrl = 'https://github.com/shanmugasanthosh7/Droidils.git'
+    libraryVersion = '1.0.2'
+    developerId = 'shanmugasanthosh'
+    developerName = 'Shanmugasanthosh'
+    developerEmail = 'shanmugasanthosh@outlook.com'
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
 
 android {
     compileSdkVersion 27
@@ -24,6 +43,10 @@ android {
 
 }
 
+tasks.withType(Javadoc).all {
+    enabled = false
+}
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
@@ -31,4 +54,13 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'com.android.support:recyclerview-v7:27.1.1'
+    implementation 'com.google.code.gson:gson:2.8.3'
 }
+repositories {
+    mavenCentral()
+}
+
+apply from: 'https://raw.githubusercontent.com/numetriclabz/jcenter/master/installv.gradle'
+apply from: 'https://raw.githubusercontent.com/numetriclabz/jcenter/master/bintrayv.gradle'

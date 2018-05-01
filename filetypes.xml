@@ -1,8 +1,0 @@
-<application>
-  <component name="FileTypeManager" version="17">
-    <extensionMap>
-      <mapping pattern=".gitignore_global" type="Git file" />
-      <mapping pattern="Gemfile" type="Native" />
-    </extensionMap>
-  </component>
-</application>
