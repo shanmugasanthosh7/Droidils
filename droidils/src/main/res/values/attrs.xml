@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="VectorDrawableButton">
+        <attr name="vdb_drawable_left" format="reference" />
+        <attr name="vdb_drawable_right" format="reference" />
+        <attr name="vdb_drawable_top" format="reference" />
+        <attr name="vdb_drawable_bottom" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="HtmlTextView">
+        <attr name="htv_html_text" format="string"/>
+    </declare-styleable>
+
+</resources>
