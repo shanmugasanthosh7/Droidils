@@ -6,7 +6,7 @@ Android's Simple Views and Utils in KOTLIN.
 
 ```gradle
 dependencies {
-      implementation 'com.aptus:droidils:1.0'
+      implementation 'com.aptus:droidils:1.0.2'
 }
 ```
 Views
@@ -74,7 +74,7 @@ class MainActivity : AppCompatActivity() {
         //Here using kotlin Extension to avoid findViewById
         fab.setOnClickListener {
             val url = "http://www.example.com";
-            val browserIntent = Intent(Intent.ACTION_VIEW, url.toUri()) // these convert String to Uri using kotlin                                                                                    extension function
+            val browserIntent = Intent(Intent.ACTION_VIEW, url.toUri()) // these convert String to Uri using kotlin extension function
             startActivity(browserIntent)
         }
     }
@@ -131,7 +131,7 @@ class MainActivity : AppCompatActivity() {
 
 >Json String to Object
 
-Droidils uses [Google's GSON] [1] library
+Droidils uses [Google's GSON][GSON] library
 
 ```kotlin
 class MainActivity : AppCompatActivity() {
@@ -178,5 +178,10 @@ Licence
           WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
           See the License for the specific language governing permissions and
           limitations under the License.
-          
-[1] : https://github.com/google/gson
+      
+      
+      
+      
+      
+      
+[GSON]: https://github.com/google/gson
