@@ -10,7 +10,7 @@ ext {
     libraryDescription = 'Android Simple View and Utils'
     siteUrl = 'https://github.com/shanmugasanthosh7/Droidils'
     gitUrl = 'https://github.com/shanmugasanthosh7/Droidils.git'
-    libraryVersion = '1.0'
+    libraryVersion = '1.0.2'
     developerId = 'shanmugasanthosh'
     developerName = 'Shanmugasanthosh'
     developerEmail = 'shanmugasanthosh@outlook.com'
