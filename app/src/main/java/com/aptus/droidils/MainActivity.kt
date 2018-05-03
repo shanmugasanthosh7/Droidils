@@ -2,9 +2,10 @@ package com.aptus.droidils
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.os.Handler
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
-import com.aptus.droidils.utils.toJson
+import com.aptus.droidils.utils.*
 
 import kotlinx.android.synthetic.main.activity_main.*
 
