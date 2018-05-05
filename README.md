@@ -80,6 +80,7 @@ class MainActivity : AppCompatActivity() {
 ```
 
 > Parse String to Date
+
 ```kotlin
 class MainActivity : AppCompatActivity() {
 
@@ -95,6 +96,7 @@ class MainActivity : AppCompatActivity() {
 ```
 
 > Format Date
+
 ```kotlin
 class MainActivity : AppCompatActivity() {
 
@@ -130,6 +132,7 @@ class MainActivity : AppCompatActivity() {
 ```
 
 > Hide and Show Status Bar in simple way
+
 ```kotlin
 class MainActivity : AppCompatActivity() {
 
@@ -147,6 +150,7 @@ class MainActivity : AppCompatActivity() {
 ```
 
 > Change Status Bar Color
+
 ```kotlin
 class MainActivity : AppCompatActivity() {
 
