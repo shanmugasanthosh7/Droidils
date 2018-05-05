@@ -4,12 +4,20 @@ jdk: oraclejdk8
 
 sudo: false
 
+before_cache:
+    - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
+
+cache:
+  directories:      #Cache all dirs under .gradle folder
+    - $HOME/.gradle/daemon      #Cache daemon logs
+    - $HOME/.gradle/native      #Cache library downloaded from the gradle dependency
+    - $HOME/.gradle/wrapper     #Cache the gradle
+
 android:
   components:
     - platform-tools
     - tools
     - build-tools-27.0.3
-    - android-24
     - android-27
     - sys-img-armeabi-v7a-android-24
     - extra-android-m2repository
@@ -21,17 +29,16 @@ before_install:
   - mkdir "$ANDROID_HOME/licenses" || true
   - echo -e "\n8933bad161af4178b1185d1a37fbf41ea5269c55" > "$ANDROID_HOME/licenses/android-sdk-license"
   - echo -e "\n84831b9409646a918e30573bab4c9c91346d8abd" > "$ANDROID_HOME/licenses/android-sdk-preview-license"
-  #- cp ./google-licenses/* "$ANDROID_HOME/licenses/"
   - chmod +x gradlew
 
 script:
     - ./gradlew build connectedCheck
 
-#deploy:
-#  provider: bintray
-#  file: "descriptor.json"
-#  user: $BINTRAY_USER
-#  key: $BINTRAY_API_KEY
-#  skip_cleanup: true # to upload artifacts created during the build
-#  dry-run: false
-#  on: production
+deploy:
+  provider: bintray
+  file: "descriptor.json"
+  user: $BINTRAY_USER
+  key: $BINTRAY_API_KEY
+  skip_cleanup: true # to upload artifacts created during the build
+  dry-run: true
+  on: feature-view-and-activity-utils
