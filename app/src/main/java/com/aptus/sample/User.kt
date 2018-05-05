@@ -1,4 +1,4 @@
-package com.aptus.droidils
+package com.aptus.sample
 
 import com.google.gson.annotations.SerializedName
 

@@ -1,8 +1,7 @@
-package com.aptus.droidils
+package com.aptus.sample
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.os.Handler
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import com.aptus.droidils.utils.*
@@ -17,7 +16,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
-        val jsonObject = User("Droidils","25") // Object
+        val jsonObject = User("Droidils", "25") // Object
         val jsonString = jsonObject.toJson() // Object to Json
         Log.d("Droidils", jsonString)
     }
