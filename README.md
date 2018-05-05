@@ -6,7 +6,7 @@ Android's Simple Views and Utils in KOTLIN.
 
 ```gradle
 dependencies {
-      implementation 'com.aptus:droidils:1.0.2'
+      implementation 'com.aptus:droidils:1.0.3'
 }
 ```
 Views
@@ -61,7 +61,7 @@ Droidils utils classes fully based on Kotlin Extension function. So, we can writ
 
 Example, 
 
->String to Uri
+>Url actionview
 
 ```kotlin
 class MainActivity : AppCompatActivity() {
@@ -73,9 +73,7 @@ class MainActivity : AppCompatActivity() {
 
         //Here using kotlin Extension to avoid findViewById
         fab.setOnClickListener {
-            val url = "http://www.example.com";
-            val browserIntent = Intent(Intent.ACTION_VIEW, url.toUri()) // these convert String to Uri using kotlin extension function
-            startActivity(browserIntent)
+            urlActionView("http://www.example.com") // Open in browser.
         }
     }
 }
