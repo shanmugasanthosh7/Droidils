@@ -19,7 +19,7 @@
 
   "files":
   [
-    {"includePattern": "build/libs/(.*)", "uploadPattern": "com/aptus/droidils/1.0.3/$1"}
+    {"includePattern": "$HOME/build/[secure]7/Droidils/droidils/build/libs/(.*)", "uploadPattern": "com/aptus/droidils/1.0.3/$1"}
   ],
   "publish": true
 }
