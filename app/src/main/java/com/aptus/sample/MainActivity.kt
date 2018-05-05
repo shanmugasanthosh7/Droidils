@@ -1,10 +1,10 @@
-package com.aptus.droidils
+package com.aptus.sample
 
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
-import com.aptus.droidils.utils.toJson
+import com.aptus.droidils.utils.*
 
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
-        val jsonObject = User("Droidils","25") // Object
+        val jsonObject = User("Droidils", "25") // Object
         val jsonString = jsonObject.toJson() // Object to Json
         Log.d("Droidils", jsonString)
     }

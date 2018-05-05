@@ -3,22 +3,20 @@
 package com.aptus.droidils.utils
 
 import com.google.gson.Gson
-import com.google.gson.GsonBuilder
-
+import com.google.gson.JsonElement
 
 /**
- * Convert Json to Object
+ * Convert Object to Json
  *
- * @param json json String
- * @return Object
+ * @return Json String
  */
-inline fun <reified T> String.toJsonObject(): T = this.let { GsonBuilder().create().fromJson(this, T::class.java) }
+fun Any?.toJson(): String? = this?.let { Gson().toJson(this) }
 
 
 /**
  * Convert Object to Json
  *
- * @param object Object
- * @return Json String
+ * @return JsonElement
  */
-fun Any?.toJson(): String? = this?.let { Gson().toJson(this) }
+
+fun <T> Any?.toJsonElement(): JsonElement = Gson().toJsonTree(this)

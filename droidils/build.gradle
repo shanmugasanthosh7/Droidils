@@ -1,7 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
-ext {
+/*ext {
     bintrayRepo = 'Droidils' // your repo name
     bintrayName = 'droidils' // has to be same as your library module name
     publishedGroupId = 'com.aptus' // your module package name
@@ -17,7 +17,7 @@ ext {
     licenseName = 'The Apache Software License, Version 2.0'
     licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
     allLicenses = ["Apache-2.0"]
-}
+}*/
 
 android {
     compileSdkVersion 27
@@ -62,5 +62,5 @@ repositories {
     mavenCentral()
 }
 
-apply from: 'https://raw.githubusercontent.com/numetriclabz/jcenter/master/installv.gradle'
-apply from: 'https://raw.githubusercontent.com/numetriclabz/jcenter/master/bintrayv.gradle'
+//apply from: 'https://raw.githubusercontent.com/numetriclabz/jcenter/master/installv.gradle'
+//apply from: 'https://raw.githubusercontent.com/numetriclabz/jcenter/master/bintrayv.gradle'

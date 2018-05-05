@@ -112,6 +112,25 @@ class MainActivity : AppCompatActivity() {
 }
 ```
 
+
+> Check whether the date after or before from given date.
+
+```kotlin
+class MainActivity : AppCompatActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+        setSupportActionBar(toolbar)
+
+        val dateTime = "19-03-2018 09:40" // date in String
+        val date = dateTime.toParseDateTime("dd-MM-yyyy hh:mm") // Convert into Date.
+        val dateAfter = date.isAfter(Date()) // false
+        val dateBefore = date.isBefore(date()) // true
+    }
+}
+```
+
 > Hide and Show Status Bar in simple way
 ```kotlin
 class MainActivity : AppCompatActivity() {
@@ -124,6 +143,22 @@ class MainActivity : AppCompatActivity() {
 
         fab.setOnClickListener {
            exitFullScreen()// Show StatusBar
+        }
+    }
+}
+```
+
+> Change Status Bar Color
+```kotlin
+class MainActivity : AppCompatActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+        setSupportActionBar(toolbar)
+        
+        fab.setOnClickListener {
+           changeStatusBarColor(R.color.blue)
         }
     }
 }
@@ -160,7 +195,23 @@ class MainActivity : AppCompatActivity() {
 }
 ```
 
-Added few simple views and utils classes more will add soon. Please give suggestion to improve Droidils.
+>View Visible,Invisible and Gone
+
+```kotlin
+class MainActivity : AppCompatActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+        setSupportActionBar(toolbar)
+        fab.gone()// Hides view
+        fab.invisible()// Invisible view
+        fab.visible();// Show view
+    }
+}
+```
+
+Added few simple views and utils classes more will be add soon. Please give suggestion to improve Droidils.
 
 Licence
 -------

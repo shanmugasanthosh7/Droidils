@@ -1,12 +1,10 @@
 package com.aptus.droidils.views
 
 import android.content.Context
-import android.os.Build
 import android.support.v7.widget.AppCompatTextView
-import android.text.Html
-import android.text.Spanned
 import android.util.AttributeSet
 import com.aptus.droidils.R
+import com.aptus.droidils.utils.fromHtml
 
 class HtmlTextView : AppCompatTextView {
 
@@ -31,15 +29,6 @@ class HtmlTextView : AppCompatTextView {
     }
 
     fun setHtmlText(htmlText: String) {
-        text = formHtmlContent(htmlText)
-    }
-
-    @Suppress("DEPRECATION")
-    private fun formHtmlContent(htmlContent: String): Spanned {
-        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
-            Html.fromHtml(htmlContent, Html.FROM_HTML_SEPARATOR_LINE_BREAK_DIV or
-                    Html.FROM_HTML_SEPARATOR_LINE_BREAK_PARAGRAPH or Html.FROM_HTML_MODE_COMPACT or Html.FROM_HTML_MODE_LEGACY)
-        else
-            Html.fromHtml(htmlContent)
+        text = htmlText.fromHtml()
     }
 }
