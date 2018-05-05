@@ -2,6 +2,8 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 ext {
+    user = project.hasProperty('bintrayUser') ? project.property('bintrayUser') : System.getenv('BINTRAY_USER')
+    apikey = project.hasProperty('bintrayApiKey') ? project.property('bintrayApiKey') : System.getenv('BINTRAY_API_KEY')
     bintrayRepo = 'Droidils' // your repo name
     bintrayName = 'droidils' // has to be same as your library module name
     publishedGroupId = 'com.aptus' // your module package name
