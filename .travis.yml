@@ -40,5 +40,5 @@ deploy:
   user: $BINTRAY_USER
   key: $BINTRAY_API_KEY
   skip_cleanup: true # to upload artifacts created during the build
-  dry-run: true
-  on: feature-view-and-activity-utils
+  dry-run: false
+  on: master
