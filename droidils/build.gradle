@@ -26,7 +26,7 @@ publishing {
             }
         }
         /*Sandbox(MavenPublication) {
-            artifact("$buildDir/outputs/aar/droidild-development-release.aar")
+            artifact("$buildDir/outputs/aar/droidils-development-release.aar")
             groupId 'com.aptus'
             artifactId 'droidils'
             version '1.0.3-SANDBOX'
@@ -52,6 +52,7 @@ bintray {
     user = System.getenv('BINTRAY_USER') // Get bintray User
     key = System.getenv('BINTRAY_API_KEY') // Get bintray Secret Key
     configurations = ['archives']
+    dryRun = false
     pkg {
         repo = 'Droidils'
         name = project.name
@@ -59,31 +60,16 @@ bintray {
         licenses = ['Apache-2.0']
         desc = 'Android Simple View and Utils'
         websiteUrl = "https://shanmugasanthosh7.github.io/Droidils"
+        issueTrackerUrl = 'https://github.com/shanmugasanthosh7/Droidils/issues'
+        vcsUrl = 'https://github.com/shanmugasanthosh7/Droidils.git'
         publish = true
+        version {
+            name = '1.3.0' //Bintray logical version name
+            vcsTag = '1.3.0'
+        }
     }
     publications = ['Production']
-
 }
-
-/*ext {
-    user = project.hasProperty('bintrayUser') ? project.property('bintrayUser') : System.getenv('BINTRAY_USER')
-    apikey = project.hasProperty('bintrayApiKey') ? project.property('bintrayApiKey') : System.getenv('BINTRAY_API_KEY')
-    bintrayRepo = 'Droidils' // your repo name
-    bintrayName = 'droidils' // has to be same as your library module name
-    publishedGroupId = 'com.aptus' // your module package name
-    libraryName = 'Droidils'
-    artifact = 'droidils' // has to be same as your library module name
-    libraryDescription = 'Android Simple View and Utils'
-    siteUrl = 'https://github.com/shanmugasanthosh7/Droidils'
-    gitUrl = 'https://github.com/shanmugasanthosh7/Droidils.git'
-    libraryVersion = '1.0.3'
-    developerId = 'shanmugasanthosh'
-    developerName = 'Shanmugasanthosh'
-    developerEmail = 'shanmugasanthosh@outlook.com'
-    licenseName = 'The Apache Software License, Version 2.0'
-    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-    allLicenses = ["Apache-2.0"]
-}*/
 
 android {
     compileSdkVersion 27
@@ -127,6 +113,3 @@ dependencies {
 repositories {
     mavenCentral()
 }
-
-/*apply from: 'https://raw.githubusercontent.com/numetriclabz/jcenter/master/installv.gradle'
-apply from: 'https://raw.githubusercontent.com/numetriclabz/jcenter/master/bintrayv.gradle'*/
