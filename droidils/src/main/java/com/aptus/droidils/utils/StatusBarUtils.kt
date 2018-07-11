@@ -20,7 +20,9 @@ fun Activity.exitFullScreen() {
 
 fun Activity.fullScreenImmersive() {
     this.window.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
-    this.window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_FULLSCREEN or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+    this.window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or
+            View.SYSTEM_UI_FLAG_FULLSCREEN or
+            View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
 }
 
 @RequiresApi(Build.VERSION_CODES.LOLLIPOP)

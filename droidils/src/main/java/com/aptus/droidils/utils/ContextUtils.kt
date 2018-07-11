@@ -8,20 +8,26 @@ import android.support.v7.app.AppCompatActivity
 import android.view.inputmethod.InputMethodManager
 
 /**
+ * Get InputMethodManager
+ * */
+fun Context.getInputMethodManager(): InputMethodManager =
+        this.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+
+/**
  * Hide Keyboard
  */
 fun Context.hideKeyboard() {
-    val inputManager = this.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-    inputManager.hideSoftInputFromWindow(this.toActivity().currentFocus!!.windowToken, InputMethodManager.HIDE_NOT_ALWAYS)
+    this.getInputMethodManager().hideSoftInputFromWindow(this.toActivity()
+            .currentFocus!!.windowToken, InputMethodManager.HIDE_NOT_ALWAYS)
 }
 
 /**
  * Cast Context To Activity
-* */
+ * */
 fun Context.toActivity(): Activity = when {
-        this is Activity -> this
-        this is AppCompatActivity -> this
-        else -> throw ClassCastException()
-    }
+    this is Activity -> this
+    this is AppCompatActivity -> this
+    else -> throw ClassCastException()
+}
 
 

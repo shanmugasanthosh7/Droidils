@@ -4,7 +4,7 @@ package com.aptus.droidils.utils
 
 import java.util.regex.Pattern
 
-object ValidationUtils{
+object ValidationUtils {
 
     private const val EMAIL_PATTERN = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+"
     private const val EMAIL_PATTERN_2 = "^[a-z0-9_\\+-]+(\\.[a-z0-9_\\+-]+)*@[a-z0-9-]+(\\.[a-z0-9-]+)*\\.([a-z]{2,4})$"
@@ -22,4 +22,5 @@ object ValidationUtils{
     private const val PASSWORD_PATTERN = "((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{6,20})"
 }
 
-fun String.validate(regexPattern:String):Boolean = Pattern.compile(regexPattern).matcher(this).matches()
+fun String.validate(regexPattern: String): Boolean =
+        Pattern.compile(regexPattern).matcher(this).matches()

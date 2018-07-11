@@ -13,7 +13,7 @@ import android.preference.PreferenceManager
  *
  * @param preferenceName
  */
-fun Context.getPref(preferenceName:String): SharedPreferences {
+fun Context.getPref(preferenceName: String): SharedPreferences {
     return getSharedPreferences(preferenceName, Context.MODE_PRIVATE)
 }
 
@@ -26,4 +26,5 @@ fun Context.getDefaultPref(): SharedPreferences {
 
 
 @SuppressLint("CommitPrefEdits")
-fun Context.getPrefEditor(preferenceName:String) : SharedPreferences.Editor = this.getPref(preferenceName).edit()
+fun Context.getPrefEditor(preferenceName: String): SharedPreferences.Editor =
+        this.getPref(preferenceName).edit()

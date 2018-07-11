@@ -5,6 +5,9 @@ import android.content.Intent
 import android.util.DisplayMetrics
 import android.view.View
 
+/**
+ * Url ActionView
+ * */
 fun Activity.urlActionView(url: String) {
     val browserIntent = Intent(Intent.ACTION_VIEW, url.toUri())
     startActivity(browserIntent)
@@ -16,6 +19,6 @@ fun Activity.getDisplayMetrics(): DisplayMetrics {
     return displaymetrics
 }
 
-fun Activity.SetOnClickListener(clickListener: View.OnClickListener, vararg view: View) {
+fun Activity.setOnClickListener(clickListener: View.OnClickListener, vararg view: View) {
     view.forEach { it.setOnClickListener(clickListener) }
 }

@@ -9,11 +9,12 @@ import android.provider.Settings
 import android.support.annotation.RequiresApi
 
 
-fun Context.getNotificationManager(): NotificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+fun Context.getNotificationManager(): NotificationManager =
+        getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
 /**
  * Go to notification settings by channel id
-* */
+ * */
 @RequiresApi(api = Build.VERSION_CODES.O)
 fun Activity.goToNotificationSettings(channel: String) {
     val i = Intent(Settings.ACTION_CHANNEL_NOTIFICATION_SETTINGS)
@@ -23,8 +24,8 @@ fun Activity.goToNotificationSettings(channel: String) {
 }
 
 /**
-* Go to notification settings
-* */
+ * Go to notification settings
+ * */
 @RequiresApi(api = Build.VERSION_CODES.O)
 fun Activity.goToNotificationSettings() {
     val i = Intent(Settings.ACTION_CHANNEL_NOTIFICATION_SETTINGS)

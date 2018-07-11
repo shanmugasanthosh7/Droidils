@@ -28,7 +28,8 @@ fun String.toUri(): Uri = this.let { Uri.parse(this) }
  * @return Parsed date
  * */
 @Throws(ParseException::class)
-fun String?.toParseDateTime(parseDateFormat: String): Date? = this?.let { SimpleDateFormat(parseDateFormat, Locale.US).parse(this) }
+fun String?.toParseDateTime(parseDateFormat: String): Date? =
+        this?.let { SimpleDateFormat(parseDateFormat, Locale.US).parse(this) }
 
 /**
  * @return Given string first character convert into uppercase
@@ -68,8 +69,8 @@ fun String.toUnderline(): SpannableString {
 
 /**
  * Put Underline
-* */
-fun String.toUnderline(startIndex: Int, endIndex: Int) : SpannableString{
+ * */
+fun String.toUnderline(startIndex: Int, endIndex: Int): SpannableString {
     val ss = SpannableString(this)
     ss.setSpan(UnderlineSpan(), startIndex, endIndex, 0)
     return ss
@@ -77,12 +78,14 @@ fun String.toUnderline(startIndex: Int, endIndex: Int) : SpannableString{
 
 /**
  * Convert Html to String
-* */
+ * */
 @Suppress("DEPRECATION")
 fun String.fromHtml(): Spanned {
     return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
         Html.fromHtml(this, Html.FROM_HTML_SEPARATOR_LINE_BREAK_DIV or
-                Html.FROM_HTML_SEPARATOR_LINE_BREAK_PARAGRAPH or Html.FROM_HTML_MODE_COMPACT or Html.FROM_HTML_MODE_LEGACY)
+                Html.FROM_HTML_SEPARATOR_LINE_BREAK_PARAGRAPH or
+                Html.FROM_HTML_MODE_COMPACT or
+                Html.FROM_HTML_MODE_LEGACY)
     else
         Html.fromHtml(this)
 }
@@ -93,5 +96,6 @@ fun String.fromHtml(): Spanned {
  * @param json json String
  * @return Object
  */
-inline fun <reified T> String.toJsonObject(): T = this.let { GsonBuilder().create().fromJson(this, T::class.java) }
+inline fun <reified T> String.toJsonObject(): T =
+        this.let { GsonBuilder().create().fromJson(this, T::class.java) }
 
