@@ -9,15 +9,23 @@ import android.os.Build
 import android.support.annotation.RequiresApi
 import android.support.v4.content.ContextCompat
 
-
+/**
+ * Shows fullscreen
+ * */
 fun Activity.fullScreen() {
     this.window.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
 }
 
+/**
+ * Exit fullscreen
+ * */
 fun Activity.exitFullScreen() {
     this.window.clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
 }
 
+/**
+ * Shows fullscreen in immersive
+ * */
 fun Activity.fullScreenImmersive() {
     this.window.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
     this.window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or
@@ -25,6 +33,9 @@ fun Activity.fullScreenImmersive() {
             View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
 }
 
+/**
+ * Change status bar color
+ * */
 @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
 fun Activity.changeStatusBarColor(colorResId: Int) {
     window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)

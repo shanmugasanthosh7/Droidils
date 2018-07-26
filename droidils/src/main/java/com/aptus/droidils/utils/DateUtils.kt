@@ -4,10 +4,9 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 /**
- * @param dateFormat The Date format eg.(yyyy-MM-dd'T'hh:mm).
- * @return Formatted date
+ * Returns Formatted date with [dateFormat]. Default Date format (yyyy-MM-dd'T'hh:mm).
  * */
-fun Date.toFormatDateTime(dateFormat: String): String =
+fun Date.toFormatDateTime(dateFormat: String = "yyyy-MM-dd'T'hh:mm"): String =
         this.let { SimpleDateFormat(dateFormat, Locale.US).format(this) }
 
 /**

@@ -8,7 +8,7 @@ import android.support.v7.app.AppCompatActivity
 import android.view.inputmethod.InputMethodManager
 
 /**
- * Get InputMethodManager
+ * Returns InputMethodManager
  * */
 fun Context.getInputMethodManager(): InputMethodManager =
         this.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager

@@ -6,17 +6,13 @@ import com.google.gson.Gson
 import com.google.gson.JsonElement
 
 /**
- * Convert Object to Json
- *
- * @return Json String
+ * Returns Json String
  */
 fun Any?.toJson(): String? = this?.let { Gson().toJson(this) }
 
 
 /**
- * Convert Object to Json
- *
- * @return JsonElement
+ *Returns JsonElement
  */
 
 fun <T> Any?.toJsonElement(): JsonElement = Gson().toJsonTree(this)

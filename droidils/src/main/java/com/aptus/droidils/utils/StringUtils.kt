@@ -17,22 +17,28 @@ import com.google.gson.GsonBuilder
 import java.text.ParseException
 
 
+object StringUtils {
+
+    /**
+     * Generate GUID
+     */
+    fun generateUUID(): String = UUID.randomUUID().toString()
+}
+
 /**
- * Convert String to Uri
- * @return String to Uri
+ * Returns URI
  * */
 fun String.toUri(): Uri = this.let { Uri.parse(this) }
 
 /**
- * @param parseDateFormat The parse Date format eg.(yyyy-MM-dd'T'hh:mm).
- * @return Parsed date
+ * Returns parsed date with [parseDateFormat]. The parse Date format eg.(yyyy-MM-dd'T'hh:mm).
  * */
 @Throws(ParseException::class)
 fun String?.toParseDateTime(parseDateFormat: String): Date? =
         this?.let { SimpleDateFormat(parseDateFormat, Locale.US).parse(this) }
 
 /**
- * @return Given string first character convert into uppercase
+ * Returns FirstLetter in uppercase.
  * */
 fun String.toUpperCaseFirst(): String? = this.let {
     val array = it.toCharArray()
@@ -41,7 +47,7 @@ fun String.toUpperCaseFirst(): String? = this.let {
 }
 
 /**
- * Put Superscript
+ * Change text to Superscript.
  * */
 fun String.toSuperScript(startIndex: Int, endIndex: Int, superScriptTextSize: Float) {
     val ss = SpannableString(this)
@@ -50,7 +56,7 @@ fun String.toSuperScript(startIndex: Int, endIndex: Int, superScriptTextSize: Fl
 }
 
 /**
- * Put Subscript
+ * Change text to Subscript.
  * */
 fun String.toSubscript(startIndex: Int, endIndex: Int, superScriptTextSize: Float) {
     val ss = SpannableString(this)
@@ -59,7 +65,7 @@ fun String.toSubscript(startIndex: Int, endIndex: Int, superScriptTextSize: Floa
 }
 
 /**
- * Put Underline
+ * Change text to Underline.
  * */
 fun String.toUnderline(): SpannableString {
     val ss = SpannableString(this)
@@ -68,7 +74,7 @@ fun String.toUnderline(): SpannableString {
 }
 
 /**
- * Put Underline
+ * Change text to Underline.
  * */
 fun String.toUnderline(startIndex: Int, endIndex: Int): SpannableString {
     val ss = SpannableString(this)
@@ -92,10 +98,7 @@ fun String.fromHtml(): Spanned {
 
 /**
  * Convert Json to Object
- *
- * @param json json String
- * @return Object
  */
-inline fun <reified T> String.toJsonObject(): T =
+inline fun <reified T> String.toMappedObject(): T =
         this.let { GsonBuilder().create().fromJson(this, T::class.java) }
 
