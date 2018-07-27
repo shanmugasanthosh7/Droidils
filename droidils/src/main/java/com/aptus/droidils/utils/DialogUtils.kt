@@ -1,3 +1,5 @@
+@file:Suppress("KDocUnresolvedReference")
+
 package com.aptus.droidils.utils
 
 import android.annotation.SuppressLint
@@ -8,17 +10,21 @@ import android.support.v7.widget.AppCompatTextView
 import android.view.LayoutInflater
 import com.aptus.droidils.R
 
-
 /**
- * Shows simple dialog with [title], [message],
- * [isCancelable] = true, [buttonText] = ok and [onButtonClick]
- * */
+ * Create simple [android.support.v7.app.AlertDialog]
+ *
+ * @param title Title of the dialog
+ * @param message Message of the dialog
+ * @param onButtonClick It trigger given method
+ * @param isCancelable Dialog is cancellable or not, defaults to [true]
+ * @param buttonText Text for positive button, defaults to [ok]
+ */
 inline fun Activity.simpleAlertDialog(title: String,
                                       message: String,
                                       crossinline onButtonClick:
                                       (dialog: DialogInterface?, which: Int) -> Unit,
-                                      isCancelable: Boolean = true,
-                                      buttonText: String = "ok"): AlertDialog {
+                                      buttonText: String = "ok",
+                                      isCancelable: Boolean = true): AlertDialog {
     val alertDialog = AlertDialog.Builder(this)
     alertDialog.setTitle(title)
     alertDialog.setMessage(message)
@@ -28,10 +34,16 @@ inline fun Activity.simpleAlertDialog(title: String,
 }
 
 /**
- * Shows simple dialog with [title], [message],
- * [isCancelable] = true, [positiveButtonText] = ok, [negativeButtonText] = Cancel
- * [onPositiveButtonClick] and [onNegativeButtonClick]
- * */
+ * Create simple [android.support.v7.app.AlertDialog]
+ *
+ * @param title Title of the dialog
+ * @param message Message of the dialog
+ * @param onPositiveButtonClick It trigger given method
+ * @param onNegativeButtonClick It trigger given method
+ * @param isCancelable Dialog is cancellable or not, defaults to [true]
+ * @param positiveButtonText Text for positive button, defaults to [ok]
+ * @param negativeButtonText Text for positive button, defaults to [Cancel]
+ */
 inline fun Activity.simpleAlertDialog(title: String,
                                       message: String,
                                       crossinline onPositiveButtonClick:
@@ -55,9 +67,7 @@ inline fun Activity.simpleAlertDialog(title: String,
 }
 
 
-/**
- * Shows Progress Dialog with [progressText]
- * */
+/** Shows Progress Dialog with given [progressText]*/
 @SuppressLint("InflateParams")
 fun Activity.showProgressDialog(progressText: String): AlertDialog {
     val view = LayoutInflater.from(this).inflate(R.layout.progress_dialog, null)

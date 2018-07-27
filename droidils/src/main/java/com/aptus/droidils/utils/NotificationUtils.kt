@@ -1,3 +1,5 @@
+@file:Suppress("KDocUnresolvedReference")
+
 package com.aptus.droidils.utils
 
 import android.app.Activity
@@ -13,15 +15,11 @@ import android.support.annotation.RequiresApi
 import android.support.v4.app.NotificationCompat
 import com.aptus.droidils.R
 
-/**
- * Returns NotificationManager
- * */
+/** Returns NotificationManager*/
 fun Context.getNotificationManager(): NotificationManager =
         getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
-/**
- * Go to notification settings with [channelId]
- * */
+/** Go to notification settings with given [channelId]*/
 @RequiresApi(api = Build.VERSION_CODES.O)
 fun Activity.goToNotificationSettings(channelId: String) {
     val i = Intent(Settings.ACTION_CHANNEL_NOTIFICATION_SETTINGS)
@@ -30,9 +28,7 @@ fun Activity.goToNotificationSettings(channelId: String) {
     startActivity(i)
 }
 
-/**
- * Go to notification settings
- * */
+/** Go to notification settings*/
 @RequiresApi(api = Build.VERSION_CODES.O)
 fun Activity.goToNotificationSettings() {
     val i = Intent(Settings.ACTION_CHANNEL_NOTIFICATION_SETTINGS)
@@ -41,10 +37,15 @@ fun Activity.goToNotificationSettings() {
 }
 
 /**
- * Create notification channel with [channelId], [channelName],
- * [isShowBadge] = true, [isEnableLights] = true, [isEnableVibration] = true
- * [importance] = IMPORTANCE_HIGH
- * */
+ * Create notification channel with given [channelId]
+ *
+ * @param channelName Name of the channel
+ * @param isShowBadge Show badge or not, defaults to [true]
+ * @param isEnableLights Enable light or not, defaults to [true]
+ * @param isEnableVibration Enable vibration or not, defaults to [true]
+ * @param importance Set importance in notification channel,
+ * defaults to [NotificationManager.IMPORTANCE_HIGH]
+ */
 @RequiresApi(api = Build.VERSION_CODES.O)
 fun Context.createNotificationChannel(channelId: String,
                                       channelName: String,
@@ -61,10 +62,15 @@ fun Context.createNotificationChannel(channelId: String,
 }
 
 /**
- * Creates simple notification with [channelId], [contentTitle], [contentText],
- * [smallIcon] = com.aptus.droidils.R.drawable.ic_notifications,
- * [isAutoCancel] = true, [isOnGoing] = false
- * */
+ * Creates simple notification with [channelId].
+ *
+ * @param contentTitle Notification content title
+ * @param contentText Notification content text
+ * @param smallIcon Icon for notification,
+ * default to [com.aptus.droidils.R.drawable.ic_notifications]
+ * @param isAutoCancel Notification auto cancel or not, defaults to [true]
+ * @param isOnGoing Notification is ongoing or not, defaults to [false]
+ */
 fun Context.simpleNotification(channelId: String,
                                contentTitle: String,
                                contentText: String,

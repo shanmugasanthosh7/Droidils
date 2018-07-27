@@ -7,23 +7,17 @@ import android.content.Context
 import android.support.v7.app.AppCompatActivity
 import android.view.inputmethod.InputMethodManager
 
-/**
- * Returns InputMethodManager
- * */
+/** Returns InputMethodManager*/
 fun Context.getInputMethodManager(): InputMethodManager =
         this.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
 
-/**
- * Hide Keyboard
- */
+/** Hide Keyboard*/
 fun Context.hideKeyboard() {
     this.getInputMethodManager().hideSoftInputFromWindow(this.toActivity()
             .currentFocus!!.windowToken, InputMethodManager.HIDE_NOT_ALWAYS)
 }
 
-/**
- * Cast Context To Activity
- * */
+/** Cast Context To Activity*/
 fun Context.toActivity(): Activity = when {
     this is Activity -> this
     this is AppCompatActivity -> this

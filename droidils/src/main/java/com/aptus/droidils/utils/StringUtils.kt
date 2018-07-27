@@ -19,28 +19,24 @@ import java.text.ParseException
 
 object StringUtils {
 
-    /**
-     * Generate GUID
-     */
+    /** Generate GUID*/
     fun generateUUID(): String = UUID.randomUUID().toString()
 }
 
-/**
- * Returns URI
- * */
+/** Returns Uri */
 fun String.toUri(): Uri = this.let { Uri.parse(this) }
 
 /**
- * Returns parsed date with [parseDateFormat]. The parse Date format eg.(yyyy-MM-dd'T'hh:mm).
- * */
+ * Returns parsed date with [parseDateFormat]. Default date format yyyy-MM-dd'T'hh:mm.
+ *
+ * @exception ParseException
+ */
 @Throws(ParseException::class)
-fun String?.toParseDateTime(parseDateFormat: String): Date? =
+fun String?.toParseDateTime(parseDateFormat: String = "yyyy-MM-dd'T'hh:mm"): Date? =
         this?.let { SimpleDateFormat(parseDateFormat, Locale.US).parse(this) }
 
-/**
- * Returns FirstLetter in uppercase.
- * */
-fun String.toUpperCaseFirst(): String? = this.let {
+/** Returns FirstLetter in uppercase.*/
+fun String.toUpperCaseFirst(): String = this.let {
     val array = it.toCharArray()
     array[0] = Character.toUpperCase(array[0])
     return String(array)
@@ -48,8 +44,12 @@ fun String.toUpperCaseFirst(): String? = this.let {
 
 /**
  * Change text to Superscript.
- * */
-fun String.toSuperScript(startIndex: Int, endIndex: Int, superScriptTextSize: Float) {
+ *
+ * @param startIndex Start index
+ * @param endIndex End Index
+ * @param superScriptTextSize Text size of the superscript, defaults to 0.5f
+ */
+fun String.toSuperScript(startIndex: Int, endIndex: Int, superScriptTextSize: Float = 0.5f) {
     val ss = SpannableString(this)
     ss.setSpan(SuperscriptSpan(), startIndex, endIndex, 0)
     ss.setSpan(RelativeSizeSpan(superScriptTextSize), startIndex, endIndex, 0)
@@ -57,16 +57,18 @@ fun String.toSuperScript(startIndex: Int, endIndex: Int, superScriptTextSize: Fl
 
 /**
  * Change text to Subscript.
- * */
-fun String.toSubscript(startIndex: Int, endIndex: Int, superScriptTextSize: Float) {
+ *
+ * @param startIndex Start index
+ * @param endIndex End Index
+ * @param subScriptTextSize Text size of the superscript, defaults to 0.5f
+ */
+fun String.toSubscript(startIndex: Int, endIndex: Int, subScriptTextSize: Float = 0.5f) {
     val ss = SpannableString(this)
     ss.setSpan(SubscriptSpan(), startIndex, endIndex, 0)
-    ss.setSpan(RelativeSizeSpan(superScriptTextSize), startIndex, endIndex, 0)
+    ss.setSpan(RelativeSizeSpan(subScriptTextSize), startIndex, endIndex, 0)
 }
 
-/**
- * Change text to Underline.
- * */
+/** Returns SpannableString. Change text to Underline.*/
 fun String.toUnderline(): SpannableString {
     val ss = SpannableString(this)
     ss.setSpan(UnderlineSpan(), 0, this.length - 1, 0)
@@ -74,7 +76,10 @@ fun String.toUnderline(): SpannableString {
 }
 
 /**
- * Change text to Underline.
+ * Returns SpannableString. Change text to Underline.
+ *
+ * @param startIndex Start index
+ * @param endIndex End index
  * */
 fun String.toUnderline(startIndex: Int, endIndex: Int): SpannableString {
     val ss = SpannableString(this)
@@ -82,9 +87,7 @@ fun String.toUnderline(startIndex: Int, endIndex: Int): SpannableString {
     return ss
 }
 
-/**
- * Convert Html to String
- * */
+/** Convert Html to String*/
 @Suppress("DEPRECATION")
 fun String.fromHtml(): Spanned {
     return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
@@ -96,9 +99,7 @@ fun String.fromHtml(): Spanned {
         Html.fromHtml(this)
 }
 
-/**
- * Convert Json to Object
- */
+/** Convert Json to Object*/
 inline fun <reified T> String.toMappedObject(): T =
         this.let { GsonBuilder().create().fromJson(this, T::class.java) }
 

@@ -8,16 +8,12 @@ import android.support.annotation.RequiresApi
 import android.util.DisplayMetrics
 import android.view.View
 
-/**
- * Url ActionView.
- * */
+/** Open default browser with the given [url].*/
 fun Activity.urlActionView(url: String) {
     startActivity(Intent(Intent.ACTION_VIEW, url.toUri()))
 }
 
-/**
- * Returns Displaymetrics
- * */
+/** Returns DisplayMetrics*/
 fun Activity.getDisplayMetrics(): DisplayMetrics {
     val displayMetrics = DisplayMetrics()
     windowManager.defaultDisplay.getMetrics(displayMetrics)
@@ -25,15 +21,15 @@ fun Activity.getDisplayMetrics(): DisplayMetrics {
 }
 
 /**
- * SetOnClickLister to all views
- * */
+ * SetOnClickLister to all views with [clickListener]
+ *
+ * @param view Views
+ */
 fun Activity.setOnClickListener(clickListener: View.OnClickListener, vararg view: View) {
     view.forEach { it.setOnClickListener(clickListener) }
 }
 
-/**
- *Shows phone settings
- * */
+/** Shows phone settings*/
 fun Activity.showPhoneSettings() {
     startActivity(Intent(android.provider.Settings.ACTION_SETTINGS))
 }
