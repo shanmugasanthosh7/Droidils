@@ -178,7 +178,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
         val jsonString = "{ name: droidils, age: 25 }" // JSON String
-        val jsonObjectSerialized = jsonString.toJsonObject<User>() // Serialized as Object
+        val jsonObjectSerialized = jsonString.toMappedObject<User>() // Serialized as Object
     }
 }
 ```
@@ -209,6 +209,28 @@ class MainActivity : AppCompatActivity() {
         fab.gone()// Hides view
         fab.invisible()// Invisible view
         fab.visible();// Show view
+    }
+}
+```
+
+>Create notification channel with simple notification
+
+```kotlin
+class MainActivity : AppCompatActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+        setSupportActionBar(toolbar)
+        fab.setOnClickListener {
+            val channelId = "com.aptus.test"
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                createNotificationChannel(channelId, "Test") // only for oreo version
+            }
+            getNotificationManager().notify(102,
+                    simpleNotification(channelId, "Droidils",
+                            "Simple Utils library"))
+        }
     }
 }
 ```
