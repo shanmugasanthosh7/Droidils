@@ -6,7 +6,7 @@ Android's Simple Views and Utils in KOTLIN.
 
 ```gradle
 dependencies {
-      implementation 'com.aptus:droidils:1.0.3'
+      implementation 'com.aptus:droidils:1.1.0'
 }
 ```
 Views
