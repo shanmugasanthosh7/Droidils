@@ -89,7 +89,7 @@ fun String.toUnderline(startIndex: Int, endIndex: Int): SpannableString {
 
 /** Convert Html to String*/
 @Suppress("DEPRECATION")
-fun String.fromHtml(): Spanned {
+fun String.fromHtmlToString(): Spanned {
     return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
         Html.fromHtml(this, Html.FROM_HTML_SEPARATOR_LINE_BREAK_DIV or
                 Html.FROM_HTML_SEPARATOR_LINE_BREAK_PARAGRAPH or

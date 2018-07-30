@@ -69,13 +69,13 @@ inline fun Activity.simpleAlertDialog(title: String,
 
 /** Shows Progress Dialog with given [progressText]*/
 @SuppressLint("InflateParams")
-fun Activity.showProgressDialog(progressText: String): AlertDialog {
+fun Activity.showProgressDialog(progressText: String, isCancelable: Boolean = false): AlertDialog {
     val view = LayoutInflater.from(this).inflate(R.layout.progress_dialog, null)
     val text = view.findViewById(R.id.loadingText) as AppCompatTextView
     text.text = progressText
     val alertDialogBuilder = AlertDialog.Builder(this)
     alertDialogBuilder.setView(view)
-    alertDialogBuilder.setCancelable(false)
+    alertDialogBuilder.setCancelable(isCancelable)
     val progressDialog = alertDialogBuilder.create()
     progressDialog.show()
     return progressDialog
