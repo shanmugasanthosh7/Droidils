@@ -2,9 +2,6 @@ package com.aptus.droidils.utils
 
 import android.app.Activity
 import android.content.Intent
-import android.os.Build
-import android.provider.Settings
-import android.support.annotation.RequiresApi
 import android.util.DisplayMetrics
 import android.view.View
 
@@ -20,13 +17,9 @@ fun Activity.getDisplayMetrics(): DisplayMetrics {
     return displayMetrics
 }
 
-/**
- * SetOnClickLister to all views with [clickListener]
- *
- * @param view Views
- */
-fun Activity.setOnClickListener(clickListener: View.OnClickListener, vararg view: View) {
-    view.forEach { it.setOnClickListener(clickListener) }
+/** SetOnClickLister to view with given [views]*/
+fun View.OnClickListener.setOnClickListener(vararg views: View) {
+    views.forEach { it.setOnClickListener(this) }
 }
 
 /** Shows phone settings*/

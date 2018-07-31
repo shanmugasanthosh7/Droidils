@@ -268,6 +268,24 @@ class MainActivity : AppCompatActivity() {
 }
 ```
 
+>EditText IME Action Listener
+
+```kotlin
+class MainActivity : AppCompatActivity() {
+
+    @SuppressLint("SetTextI18n")
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+        // we must to set inputType
+        imeActionEdit.setImeActionListener { _, _ ->
+            Toast.makeText(this, "Droidils Utils library", Toast.LENGTH_SHORT).show()
+            true
+        }
+    }
+}
+```
+
 Added few simple views and utils classes more will be add soon. Please give suggestion to improve Droidils.
 
 Licence

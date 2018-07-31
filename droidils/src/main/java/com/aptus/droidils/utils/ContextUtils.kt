@@ -48,7 +48,7 @@ fun Context.compatStartService(service: Intent) {
  *
  * @param subject Subject.
  * @param message Text which has to shared.
- * @param chooserTitle Title for chooser.
+ * @param chooserTitle Title for chooser, defaults to Share via
  * */
 fun Context.shareText(subject: String, message: String, chooserTitle: String = "Share via") {
     val i = Intent(Intent.ACTION_SEND)
@@ -62,7 +62,7 @@ fun Context.shareText(subject: String, message: String, chooserTitle: String = "
  * Share Photo using chooser
  *
  * @param photoUri Uri for photo.
- * @param chooserTitle Title for chooser.
+ * @param chooserTitle Title for chooser, defaults to Share via
  * */
 fun Context.sharePhoto(photoUri: Uri, chooserTitle: String = "Share via") {
     val intent = Intent(Intent.ACTION_SEND)

@@ -38,7 +38,7 @@ fun String?.toParseDateTime(parseDateFormat: String = "yyyy-MM-dd'T'hh:mm"): Dat
 /** Returns FirstLetter in uppercase.*/
 fun String.toUpperCaseFirst(): String = this.let {
     val array = it.toCharArray()
-    array[0] = Character.toUpperCase(array[0])
+    if (array.isNotEmpty()) array[0] = Character.toUpperCase(array[0])
     return String(array)
 }
 
