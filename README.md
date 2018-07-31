@@ -6,7 +6,7 @@ Android's Simple Views and Utils in KOTLIN.
 
 ```gradle
 dependencies {
-      implementation 'com.aptus:droidils:1.0.3'
+      implementation 'com.aptus:droidils:1.1.0'
 }
 ```
 Views
@@ -230,6 +230,57 @@ class MainActivity : AppCompatActivity() {
             getNotificationManager().notify(102,
                     simpleNotification(channelId, "Droidils",
                             "Simple Utils library"))
+        }
+    }
+}
+```
+
+>Create Shortcut in simple way
+
+```kotlin
+class MainActivity : AppCompatActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+        setSupportActionBar(toolbar)
+        fab.setOnClickListener {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N_MR1) {
+                val appShortCuts = SparseArray<AppShortCut>()
+                val intents = arrayOf(Intent(Intent.ACTION_MAIN, Uri.EMPTY, this,
+                        MainActivity::class.java)
+                        .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK),
+                        Intent("com.aptus.droidils.OPEN_SECOND"))
+                // It's recommended more than 4 shortcut is not allowed and throw exception
+                appShortCuts.append(0, AppShortCut("0",
+                        "Droidils 1", R.drawable.ic_notifications, intents))
+                appShortCuts.append(1, AppShortCut("1",
+                        "Droidils 2", R.drawable.ic_notifications, intents))
+                // Short label not more than 10 character and long label not more than 25 character
+                // If it's exceeds exception will thrown.
+                appShortCuts.append(2, AppShortCut("2",
+                        "Droidils 3", R.drawable.ic_notifications, intents,
+                        "Simple utils library", true))
+                setShortCuts(buildShortCuts(appShortCuts))
+            }
+        }
+    }
+}
+```
+
+>EditText IME Action Listener
+
+```kotlin
+class MainActivity : AppCompatActivity() {
+
+    @SuppressLint("SetTextI18n")
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+        // we must to set inputType
+        imeActionEdit.setImeActionListener { _, _ ->
+            Toast.makeText(this, "Droidils Utils library", Toast.LENGTH_SHORT).show()
+            true
         }
     }
 }

@@ -4,7 +4,7 @@ import android.content.Context
 import android.support.v7.widget.AppCompatTextView
 import android.util.AttributeSet
 import com.aptus.droidils.R
-import com.aptus.droidils.utils.fromHtml
+import com.aptus.droidils.utils.fromHtmlToString
 
 class HtmlTextView : AppCompatTextView {
 
@@ -29,6 +29,6 @@ class HtmlTextView : AppCompatTextView {
     }
 
     fun setHtmlText(htmlText: String) {
-        text = htmlText.fromHtml()
+        text = htmlText.fromHtmlToString()
     }
 }

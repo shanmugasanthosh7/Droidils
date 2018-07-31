@@ -5,17 +5,24 @@ import android.content.Intent
 import android.util.DisplayMetrics
 import android.view.View
 
+/** Open default browser with the given [url].*/
 fun Activity.urlActionView(url: String) {
-    val browserIntent = Intent(Intent.ACTION_VIEW, url.toUri())
-    startActivity(browserIntent)
+    startActivity(Intent(Intent.ACTION_VIEW, url.toUri()))
 }
 
+/** Returns DisplayMetrics*/
 fun Activity.getDisplayMetrics(): DisplayMetrics {
-    val displaymetrics = DisplayMetrics()
-    windowManager.defaultDisplay.getMetrics(displaymetrics)
-    return displaymetrics
+    val displayMetrics = DisplayMetrics()
+    windowManager.defaultDisplay.getMetrics(displayMetrics)
+    return displayMetrics
 }
 
-fun Activity.SetOnClickListener(clickListener: View.OnClickListener, vararg view: View) {
-    view.forEach { it.setOnClickListener(clickListener) }
+/** SetOnClickLister to view with given [views]*/
+fun View.OnClickListener.setOnClickListener(vararg views: View) {
+    views.forEach { it.setOnClickListener(this) }
+}
+
+/** Shows phone settings*/
+fun Activity.showPhoneSettings() {
+    startActivity(Intent(android.provider.Settings.ACTION_SETTINGS))
 }

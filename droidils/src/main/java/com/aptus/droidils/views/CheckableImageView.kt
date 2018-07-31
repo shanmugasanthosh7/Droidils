@@ -6,8 +6,8 @@ import android.support.v7.widget.AppCompatImageView
 import android.util.AttributeSet
 import android.view.View
 
-
-class CheckableImageView(context: Context, attrs: AttributeSet) : AppCompatImageView(context, attrs), Checkable {
+class CheckableImageView(context: Context,
+                         attrs: AttributeSet) : AppCompatImageView(context, attrs), Checkable {
 
     private var mChecked = false
     private var mOnCheckedChangeListener: OnCheckedChangeListener? = null
@@ -50,7 +50,7 @@ class CheckableImageView(context: Context, attrs: AttributeSet) : AppCompatImage
     /**
      * Register a callback to be invoked when the checked state of this view changes.
      *
-     * @param listener the callback to call on checked state change
+     * @param listener the callback to call on checked state change.
      */
     fun setOnCheckedChangeListener(listener: OnCheckedChangeListener) {
         mOnCheckedChangeListener = listener
