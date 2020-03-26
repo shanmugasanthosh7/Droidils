@@ -17,11 +17,8 @@ import com.google.gson.GsonBuilder
 import java.text.ParseException
 
 
-object StringUtils {
-
-    /** Generate GUID*/
-    fun generateUUID(): String = UUID.randomUUID().toString()
-}
+/** Generate GUID*/
+fun generateUUID(): String = UUID.randomUUID().toString()
 
 /** Returns Uri */
 fun String.toUri(): Uri = this.let { Uri.parse(this) }

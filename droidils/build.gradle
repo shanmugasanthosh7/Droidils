@@ -10,7 +10,7 @@ publishing {
             artifact("$buildDir/outputs/aar/droidils-release.aar")
             groupId 'com.aptus'
             artifactId 'droidils'
-            version '1.1.0'
+            version '1.2.0'
 
             //The publication doesn't know about our dependencies, so we have to manually add them to the pom
             pom.withXml {
@@ -68,22 +68,22 @@ bintray {
         vcsUrl = 'https://github.com/shanmugasanthosh7/Droidils.git'
 
         version {
-            name = '1.4.0' //Bintray logical version name
-            vcsTag = '1.4.0'
+            name = '1.4.1' //Bintray logical version name
+            vcsTag = '1.4.1'
         }
     }
     publications = ['Production']
 }
 
 android {
-    compileSdkVersion 27
+    compileSdkVersion 29
 
     defaultConfig {
         minSdkVersion 19
-        targetSdkVersion 27
+        targetSdkVersion 29
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
@@ -101,13 +101,13 @@ tasks.withType(Javadoc).all {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.android.support:appcompat-v7:27.1.1'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    testImplementation 'junit:junit:4.13'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'com.android.support:recyclerview-v7:27.1.1'
-    implementation 'com.google.code.gson:gson:2.8.3'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    implementation 'com.google.code.gson:gson:2.8.6'
 }
 repositories {
     mavenCentral()

@@ -9,7 +9,7 @@ import android.hardware.SensorManager
 import android.media.AudioManager
 import android.net.Uri
 import android.os.Build
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.view.inputmethod.InputMethodManager
 
 /** Returns InputMethodManager*/

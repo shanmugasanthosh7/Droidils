@@ -1,12 +1,12 @@
-@file:Suppress("KDocUnresolvedReference")
+@file:Suppress("KDocUnresolvedReference", "unused")
 
 package com.aptus.droidils.utils
 
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.DialogInterface
-import android.support.v7.app.AlertDialog
-import android.support.v7.widget.AppCompatTextView
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.widget.AppCompatTextView
 import android.view.LayoutInflater
 import com.aptus.droidils.R
 

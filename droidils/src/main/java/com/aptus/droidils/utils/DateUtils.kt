@@ -1,3 +1,5 @@
+@file:Suppress("unused")
+
 package com.aptus.droidils.utils
 
 import java.text.SimpleDateFormat

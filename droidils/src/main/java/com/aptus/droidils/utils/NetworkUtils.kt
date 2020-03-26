@@ -1,4 +1,4 @@
-@file:Suppress("KDocUnresolvedReference")
+@file:Suppress("KDocUnresolvedReference", "unused")
 
 package com.aptus.droidils.utils
 
@@ -10,7 +10,7 @@ fun Context.getConnectivityManager(): ConnectivityManager =
         this.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
 
 /** Returns [true] if network is available or else [false]*/
-fun Context.isNetworkConneted(): Boolean {
+fun Context.isNetworkConnected(): Boolean {
     val netInfo = getConnectivityManager().activeNetworkInfo
     return netInfo != null && netInfo.isConnectedOrConnecting
 }

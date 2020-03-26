@@ -6,9 +6,9 @@ import android.app.Activity
 import android.view.View
 import android.view.WindowManager
 import android.os.Build
-import android.support.annotation.ColorRes
-import android.support.annotation.RequiresApi
-import android.support.v4.content.ContextCompat
+import androidx.annotation.ColorRes
+import androidx.annotation.RequiresApi
+import androidx.core.content.ContextCompat
 
 /** Shows fullscreen*/
 fun Activity.fullScreen() {

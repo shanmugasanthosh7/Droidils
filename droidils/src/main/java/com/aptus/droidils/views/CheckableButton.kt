@@ -2,7 +2,7 @@ package com.aptus.droidils.views
 
 import android.content.Context
 import android.widget.Checkable
-import android.support.v7.widget.AppCompatButton
+import androidx.appcompat.widget.AppCompatButton
 import android.util.AttributeSet
 import android.view.View
 

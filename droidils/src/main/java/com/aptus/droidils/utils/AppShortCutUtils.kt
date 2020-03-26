@@ -6,12 +6,12 @@ import android.content.Intent
 import android.util.SparseArray
 import android.content.pm.ShortcutManager
 import android.os.Build
-import android.support.annotation.RequiresApi
+import androidx.annotation.RequiresApi
 import android.content.pm.ShortcutInfo
 import android.content.Context
 import android.graphics.drawable.Icon
-import android.support.annotation.DrawableRes
-import android.support.annotation.NonNull
+import androidx.annotation.DrawableRes
+import androidx.annotation.NonNull
 import java.util.*
 
 /** Returns ShortCutManager */
@@ -45,7 +45,7 @@ fun Context.buildShortCut(appShortCut: AppShortCut,
             .setRank(rank)
             .setIcon(Icon.createWithResource(this, appShortCut.iconRes))
             .setIntents(appShortCut.intents)
-    if (appShortCut.isEnableLongLabel) shortCutBuilder.setLongLabel(appShortCut.longLabel)
+    if (appShortCut.isEnableLongLabel) appShortCut.longLabel?.let { shortCutBuilder.setLongLabel(it) }
     return shortCutBuilder.build()
 }
 
@@ -94,7 +94,7 @@ fun Context.getShortCutIds(appShortCuts: SparseArray<AppShortCut>): List<String>
 data class AppShortCut(@NonNull val id: String,
                        @NonNull val shortLabel: String,
                        @DrawableRes val iconRes: Int,
-                       @NonNull val intents: Array<Intent>?,
+                       @NonNull val intents: Array<Intent>,
                        var longLabel: String? = null,
                        var isEnableLongLabel: Boolean = false) {
 
@@ -104,14 +104,12 @@ data class AppShortCut(@NonNull val id: String,
 
         other as AppShortCut
 
-        if (!Arrays.equals(intents, other.intents)) return false
+        if (!intents.contentEquals(other.intents)) return false
 
         return true
     }
 
-    override fun hashCode(): Int {
-        return intents?.let { Arrays.hashCode(it) } ?: 0
-    }
+    override fun hashCode(): Int = intents.contentHashCode()
 }
 
 class AppShortCutLimitException(message: String) : RuntimeException(message)

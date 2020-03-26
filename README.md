@@ -6,7 +6,7 @@ Android's Simple Views and Utils in KOTLIN.
 
 ```gradle
 dependencies {
-      implementation 'com.aptus:droidils:1.1.0'
+      implementation 'com.aptus:droidils:1.2.0'
 }
 ```
 Views
@@ -243,7 +243,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        setSupportActionBar(toolbar)
         fab.setOnClickListener {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N_MR1) {
                 val appShortCuts = SparseArray<AppShortCut>()
@@ -273,7 +272,6 @@ class MainActivity : AppCompatActivity() {
 ```kotlin
 class MainActivity : AppCompatActivity() {
 
-    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -286,7 +284,68 @@ class MainActivity : AppCompatActivity() {
 }
 ```
 
-Added few simple views and utils classes more will be add soon. Please give suggestion to improve Droidils.
+> Start an activity with Action and Flags
+
+```kotlin
+class MainActivity : AppCompatActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+        // Start second activity
+        goTo { buildIntent<SecondActivity>() }
+
+        // Start second activity with action
+        goTo { buildIntent<SecondActivity>("com.aptus.testAction") }
+
+        // Start second activity with Flags
+        goTo { buildIntent<SecondActivity>().addFlags(Intent.FLAG_ACTIVITY_NEW_TASK) }
+    }
+}
+```
+
+> Do log simply...;)
+
+```kotlin
+class MainActivity : AppCompatActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        // Logging method
+        logDebug<MainActivity>("Droidils makes code concise...!!!")
+        logError<MainActivity>("Droidils, The Utils Library!!!...")
+    }
+}
+```
+
+> EditText TextWatcherListener
+
+```kotlin
+class MainActivity : AppCompatActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        // TextWatcher listener all three methods
+        imeActionEdit.onTextWatcher({ s, start, count, after -> },
+                { s, start, before, count -> }, { s -> })
+
+        // TextWatcher listener before text change
+        imeActionEdit.onBeforeTextChange { s, start, count, after -> }
+
+        // TextWatcher listener on text change
+        imeActionEdit.onTextChange { s, start, before, count -> }
+
+        // TextWatcher listener after text change
+        imeActionEdit.onAfterTextChange { s -> }
+    }
+}
+```
+
+Added few simple views and utils classes more will be add soon. Explore and give suggestion to improve *Droidils*.
 
 Licence
 -------

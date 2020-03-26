@@ -2,10 +2,10 @@ package com.aptus.droidils.views
 
 import android.content.Context
 import android.graphics.drawable.Drawable
-import android.support.annotation.DrawableRes
-import android.support.graphics.drawable.VectorDrawableCompat
-import android.support.v7.widget.AppCompatButton
-import android.support.v4.graphics.drawable.DrawableCompat
+import androidx.annotation.DrawableRes
+import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat
+import androidx.appcompat.widget.AppCompatButton
+import androidx.core.graphics.drawable.DrawableCompat
 import android.util.AttributeSet
 import com.aptus.droidils.R
 
