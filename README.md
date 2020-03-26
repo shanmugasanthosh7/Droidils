@@ -54,7 +54,7 @@ class MainActivity : AppCompatActivity() {
 ```
 
 - VectorDrawableButton - which supports vector drawable in left,right,top and bottom position.
-- CheckbaleButton - checkable interface added.
+- CheckableButton - checkable interface added.
 - EndlessRecyclerScrollListener - which is used for simple pagination or load more.
 
 Droidils utils classes fully based on Kotlin Extension function. So, we can write code concise and avoid boilerplate.
