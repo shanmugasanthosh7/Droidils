@@ -1,4 +1,4 @@
-# Droidils
+# Droidils [![Build Status](https://travis-ci.com/shanmugasanthosh7/Droidils.svg?branch=master)](https://travis-ci.com/shanmugasanthosh7/Droidils)
 
 Android's Simple Views and Utils in KOTLIN. 
 
